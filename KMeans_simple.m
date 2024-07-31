@@ -1,0 +1,6 @@
+X = [randn(20,2)+ones(20,2); randn(20,2)-ones(20,2)];
+        opts = statset('Display','final');
+        [cidx, ctrs] = kmeans(X, 2, 'Distance','city', ...
+                              'Replicates',5, 'Options',opts);
+        plot(X(cidx==1,1),X(cidx==1,2),'r.', ...
+             X(cidx==2,1),X(cidx==2,2),'b.', ctrs(:,1),ctrs(:,2),'kx');
